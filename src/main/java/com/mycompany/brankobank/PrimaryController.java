@@ -15,6 +15,8 @@ public class PrimaryController {
     
     public TextField username;
     public PasswordField password;
+
+    public PasswordField pin_code;
     
     @FXML
     private void login() throws IOException {
@@ -35,7 +37,39 @@ public class PrimaryController {
 
     @FXML
     private void userPinEntry() throws IOException{
-        App.setRoot("branch_selection");
+        System.out.println(pin_code.getText());
+        boolean pinStatus = theModel.check_pin(pin_code.getText(), JSONObj.readJSON("users.json"));
+        System.out.println(pinStatus);
+        if(pinStatus){
+            App.setRoot("user_dashboard");
+        }
+
+    }
+
+    @FXML
+    private void withdraw_saving_click() throws IOException {
+        App.setRoot("saving_withdraw");
+    }
+    @FXML
+    private void withdraw_chequing_click() throws IOException {
+        App.setRoot("chequing_withdraw");
+    }
+    @FXML
+    private void deposit_saving_click() throws IOException {
+        App.setRoot("saving_deposit");
+    }
+    @FXML
+    private void deposit_chequing_click() throws IOException {
+        App.setRoot("chequing_deposit");
+    }
+    @FXML
+    private void saving_balance_click() throws IOException {
+        App.setRoot("chequing_deposit");
+    }
+
+    @FXML
+    private void chequing_balance_click() throws IOException {
+
     }
 
     @FXML

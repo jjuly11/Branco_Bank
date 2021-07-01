@@ -26,8 +26,8 @@ public class model {
     
 //    int t;
     
-    public boolean check_pin(String pin, JSONArray userList){
-        
+    public static boolean check_pin(String pin, JSONArray userList){
+//        System.out.println(user);
         String dbPin = (String) user.get("pin");
         
         if(dbPin.equals(pin)){

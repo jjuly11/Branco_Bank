@@ -6,10 +6,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.control.PasswordField?>
 <VBox alignment="CENTER" prefHeight="325.0" prefWidth="406.0" spacing="20.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.brankobank.PrimaryController">
     <children>
         <Label text="Enter Your Pin Number" />
-      <TextField promptText="Pin" />
+      <PasswordField fx:id="pin_code" promptText="Pin"/>
         <Button fx:id="secondaryButton" onAction="#userPinEntry" text="Enter Card" />
     </children>
     <padding>
