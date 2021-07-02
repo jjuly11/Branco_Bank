@@ -3,6 +3,7 @@ package com.mycompany.brankobank;
 import java.io.IOException;
 import javafx.fxml.FXML;
 import com.mycompany.json.jsonObj;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 //import java.awt.event.ActionEvent;
 //import java.awt.event.ActionListener;
@@ -17,6 +18,15 @@ public class PrimaryController {
     public PasswordField password;
 
     public PasswordField pin_code;
+
+    public TextField saving_withdraw_amount;
+    public Label saving_withdraw_output;
+    public TextField chequeing_withdraw_amount;
+    public Label chequeing_withdraw_output;
+    public TextField saving_deposit_amount;
+    public Label saving_deposit_output;
+    public TextField chequeing_deposit_amount;
+    public Label chequeing_deposit_output;
     
     @FXML
     private void login() throws IOException {
@@ -50,6 +60,37 @@ public class PrimaryController {
     private void withdraw_saving_click() throws IOException {
         App.setRoot("saving_withdraw");
     }
+
+    @FXML
+    private void withdraw_from_saving_click() throws IOException{
+//        System.out.println(Integer.parseInt(amount.getText()));
+        int savingsCash= theModel.withdraw(Integer.parseInt(saving_withdraw_amount.getText()),"savings");
+//        System.out.println(savingsCash);
+        saving_withdraw_output.setText("Your New Savings balance is $"+savingsCash);
+    }
+
+    @FXML
+    private void withdraw_from_chequing_click() throws IOException{
+//        This function call the method inside of the model to calculate the new balance and then outputs it to the screen.
+        int chequeingCash= theModel.withdraw(Integer.parseInt(chequeing_withdraw_amount.getText()),"checking");
+//        System.out.println(savingsCash);
+        chequeing_withdraw_output.setText("Your New Savings balance is $"+chequeingCash);
+    }
+
+    @FXML
+    private void depoit_from_chequing_click() throws IOException{
+        int chequeingCash= theModel.deposit(Integer.parseInt(chequeing_deposit_amount.getText()),"checking");
+//        System.out.println(savingsCash);
+        chequeing_deposit_output.setText("Your New Chequeing balance is $"+chequeingCash);
+    }
+
+    @FXML
+    private void deposit_from_saving_click() throws IOException{
+        int savingsCash= theModel.deposit(Integer.parseInt(saving_deposit_amount.getText()),"savings");
+//        System.out.println(savingsCash);
+        saving_deposit_output.setText("Your New Savings balance is $"+savingsCash);
+    }
+
     @FXML
     private void withdraw_chequing_click() throws IOException {
         App.setRoot("chequing_withdraw");

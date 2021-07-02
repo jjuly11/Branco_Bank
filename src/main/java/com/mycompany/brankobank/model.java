@@ -18,10 +18,10 @@ public class model {
     public static JSONObject user;
     private static JSONArray modUserList;
     private static String adminPassword="admin";
-    private int dbDepAmt;
-    private int dbWithAmt;
-    private boolean depRanOnce=false;
-    private boolean withRanOnce=false;
+    private static int dbDepAmt;
+    private static int dbWithAmt;
+    private static boolean depRanOnce=false;
+    private static boolean withRanOnce=false;
     
     
 //    int t;
@@ -116,7 +116,7 @@ public class model {
     
 //    ATM Functions
     
-    public int deposit(int amount, String acc){
+    public static int deposit(int amount, String acc){
         System.out.println(acc);
         if(!depRanOnce){
             dbDepAmt= Integer.parseInt((String)user.get(acc));
@@ -130,11 +130,11 @@ public class model {
         else{
             System.out.println("Too little money");
         }
-        System.out.println(user);
+        System.out.println(dbDepAmt);
         return dbDepAmt;
     }
     
-    public int withdraw(int amount, String acc){
+    public static int withdraw(int amount, String acc){
 //        System.out.println(acc);
         if(!withRanOnce){
             dbWithAmt= Integer.parseInt((String)user.get(acc));
