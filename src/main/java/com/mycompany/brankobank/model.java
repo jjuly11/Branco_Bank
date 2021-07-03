@@ -42,7 +42,8 @@ public class model {
         
     }
     
-
+//    Utility Class Used to Print information in the console.
+    
     public static void printIt(Object thing){
         System.out.println(thing);
     }
@@ -175,5 +176,34 @@ public class model {
         modUserList.add(completeUser);
 //        System.out.println(modUserList);
         return modUserList;
+    }
+    
+//    Administration Section
+    public static JSONObject searchedUser(JSONArray userList, String username){
+        
+        for(int i=0; i < userList.size(); i++){
+            JSONObject userObject =(JSONObject) userList.get(i);
+
+            JSONObject dbUser = (JSONObject) userObject.get("user");
+
+
+            String dbName = (String) dbUser.get("username");
+
+
+//            System.out.println("Inside the userValidation"+username);
+            if(dbName.equals(username)){
+
+                user = (JSONObject) userObject.get("user");
+//                    printIt(dbName+" Has access");
+
+                modUserList.remove(i);
+
+                break;
+            }
+
+    //        return null;
+            
+        }
+        return user;
     }
 }

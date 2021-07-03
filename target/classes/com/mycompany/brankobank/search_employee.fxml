@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.brankobank.PrimaryController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.brankobank.SecondaryController">
     <children>
         <VBox alignment="TOP_CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -27,12 +26,12 @@
         </VBox>
         <VBox alignment="CENTER" layoutX="250.0" layoutY="100.0" prefHeight="200.0" prefWidth="100.0" spacing="20.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
             <children>
-                <TextField alignment="TOP_CENTER" promptText="Employee's Name">
+                <TextField fx:id="searched_employee_field" alignment="TOP_LEFT" promptText="Employee's Name">
                     <padding>
                         <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                     </padding>
                 </TextField>
-                <Button mnemonicParsing="false" text="Search" textAlignment="CENTER">
+                <Button mnemonicParsing="false" onAction="#search_employees_click" text="Search" textAlignment="CENTER">
                     <font>
                         <Font size="13.0" />
                     </font>
@@ -41,6 +40,9 @@
                     </padding>
                 </Button>
             </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
         </VBox>
     </children>
 </AnchorPane>
