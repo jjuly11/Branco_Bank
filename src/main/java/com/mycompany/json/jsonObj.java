@@ -18,7 +18,7 @@ import org.json.simple.parser.ParseException;
 
 /**
  *
- * @author Roxanne July
+ * @author
  */
 public class jsonObj {
     
@@ -97,12 +97,12 @@ public class jsonObj {
             e.printStackTrace();
         }
     }
-    public void writeJSON(JSONArray list){
+    public void writeJSON(JSONArray list, String path){
 //        System.out.println("in function");
 //        File users= new File("users.json");
 //        users.delete();
         
-        try (FileWriter f = new FileWriter("users.json",false)) {
+        try (FileWriter f = new FileWriter(path,false)) {
             //We can write any JSONArray or JSONObject instance to the file
             System.out.println(list);
             f.write(list.toJSONString()); 

@@ -1,1 +1,1 @@
-[{"user":{"checking":"50000","password":"password","pin":"0002","fullName":"user two","isAdmin":"false","savings":"50000","username":"user2"}},{"user":{"checking":"150000","password":"hello","pin":"0001","fullName":"user one","isAdmin":"false","savings":"177176","username":"user1"}}]
+[{"user":{"checking":"150000","password":"hello","pin":"0001","fullName":"user one","isAdmin":"false","savings":"177176","username":"user1"}},{"user":{"checking":"150000","password":"passWord","pin":"0002","fullName":"user two","isAdmin":"false","savings":"177176","username":"user2"}}]

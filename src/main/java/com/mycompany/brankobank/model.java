@@ -16,7 +16,9 @@ public class model {
     public String admin;
     public String password;
     public static JSONObject user;
+    public static JSONObject employee;
     private static JSONArray modUserList;
+    private static JSONArray modEmployeeList;
     private static String adminPassword="admin";
     private static int dbDepAmt;
     private static int dbWithAmt;
@@ -169,18 +171,23 @@ public class model {
     }
     
     
+//    1 -> user
+//     2 -> employee
     
     public JSONArray submitChanges(){
         JSONObject completeUser = new JSONObject();
         completeUser.put("user",user);
+
         modUserList.add(completeUser);
-//        System.out.println(modUserList);
         return modUserList;
+
+        
+//        System.out.println(modUserList);
     }
     
 //    Administration Section
     public static JSONObject searchedUser(JSONArray userList, String username){
-        
+        modEmployeeList = userList;
         for(int i=0; i < userList.size(); i++){
             JSONObject userObject =(JSONObject) userList.get(i);
 
@@ -205,5 +212,53 @@ public class model {
             
         }
         return user;
+    }
+
+//    1 -> user
+//     2 -> employee
+
+    public JSONArray submitAdminChanges(JSONObject edited_user, String acc, int val){
+        JSONObject completeUser = new JSONObject();
+        completeUser.put(acc,edited_user);
+
+        if(val == 1){
+            modUserList.add(completeUser);
+            return modUserList;
+        }
+        else{
+            modEmployeeList.add(completeUser);
+            return modEmployeeList;
+        }
+
+//        System.out.println(modUserList);
+//        return modUserList;
+    }
+    public static JSONObject searchedEmployee(JSONArray userList, String username){
+        
+         modEmployeeList = userList;
+        for(int i=0; i < userList.size(); i++){
+            JSONObject userObject =(JSONObject) userList.get(i);
+
+            JSONObject dbUser = (JSONObject) userObject.get("employee");
+
+
+            String dbName = (String) dbUser.get("username");
+
+
+//            System.out.println(dbName);
+            if(dbName.equals(username)){
+
+                employee = (JSONObject) userObject.get("employee");
+//                    printIt(dbName+" Has access");
+
+                modEmployeeList.remove(i);
+
+                break;
+            }
+
+    //        return null;
+            
+        }
+        return employee;
     }
 }
