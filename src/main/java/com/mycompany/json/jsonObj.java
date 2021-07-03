@@ -56,6 +56,32 @@ public class jsonObj {
 //        return [{"empty":"empty"}];
         return null;
     }
+
+    //    This Methods reads the template file and returns a JSONObject
+    public static JSONObject readJSONTemplate(String filename){
+        //JSON parser object to parse read file
+        JSONParser jsonParser = new JSONParser();
+
+//        JSONArray employeeList;
+//            JSONArray userList ;
+        try (FileReader reader = new FileReader(filename))
+        {
+            //Read JSON file
+            Object obj = jsonParser.parse(reader);
+
+            JSONObject List = (JSONObject) obj;
+            return List;
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+//        return [{"empty":"empty"}];
+        return null;
+    }
     
     
     private static void parseEmployeeObject(JSONObject employee) 

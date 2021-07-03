@@ -180,7 +180,6 @@ public class model {
 
         modUserList.add(completeUser);
         return modUserList;
-
         
 //        System.out.println(modUserList);
     }
@@ -233,6 +232,26 @@ public class model {
 //        System.out.println(modUserList);
 //        return modUserList;
     }
+    
+//    Template Save Changes
+     public JSONArray submitAdminChangesTemplate(JSONObject edited_user, JSONArray List, String acc, int val){
+//        JSONObject completeUser = new JSONObject();
+//        completeUser.put(acc,edited_user);
+
+        if(val == 1){
+            List.add(edited_user);
+            return List;
+        }
+        else{
+            List.add(edited_user);
+            return List;
+        }
+
+//        System.out.println(modUserList);
+//        return modUserList;
+    }
+     
+     
     public static JSONObject searchedEmployee(JSONArray userList, String username){
         
          modEmployeeList = userList;
