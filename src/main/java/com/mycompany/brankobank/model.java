@@ -154,22 +154,17 @@ public class model {
         return dbWithAmt;
     }
     
-    public int checkb(){
-    
-    
-        int anscheck= Integer.parseInt((String)user.get("checking"));
-        return anscheck;
+    public static int checkb(){
+
+        return Integer.parseInt((String)user.get("checking"));
        
     
     }
     
-     public int checksav(){
-    
-    
-        int anscheck2= Integer.parseInt((String)user.get("savings"));
-        return anscheck2;
-       
-    
+     public static int checksav(){
+
+        return Integer.parseInt((String)user.get("savings"));
+
     }
     
     

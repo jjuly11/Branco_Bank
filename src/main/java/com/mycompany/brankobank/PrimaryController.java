@@ -1,6 +1,8 @@
 package com.mycompany.brankobank;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
 import javafx.fxml.FXML;
 import com.mycompany.json.jsonObj;
 import javafx.scene.control.Label;
@@ -27,6 +29,9 @@ public class PrimaryController {
     public Label saving_deposit_output;
     public TextField chequeing_deposit_amount;
     public Label chequeing_deposit_output;
+
+    public Label saving_balance_output;
+    public Label chequing_balance_output;
     
     @FXML
     private void login() throws IOException {
@@ -104,13 +109,34 @@ public class PrimaryController {
         App.setRoot("chequing_deposit");
     }
     @FXML
-    private void saving_balance_click() throws IOException {
-        App.setRoot("chequing_deposit");
+    private void saving_balance_click() throws IOException, InterruptedException {
+        App.setRoot("check_saving_balance");
+
+    }
+    @FXML
+    private void show_saving_balance() throws IOException, InterruptedException {
+//        App.setRoot("check_saving_balance");
+//        TimeUnit.SECONDS.sleep(5);
+        int msg = theModel.checksav();
+        System.out.println("...............................................");
+        saving_balance_output.setText("$"+msg);
+
     }
 
     @FXML
+    private void user_back_click() throws IOException{
+        App.setRoot("user_dashboard");
+    }
+    @FXML
     private void chequing_balance_click() throws IOException {
+        App.setRoot("check_cheque_balance");
 
+    }
+    @FXML
+    private void show_chequing_balance() throws IOException{
+        int msg = theModel.checkb();
+
+        chequing_balance_output.setText("$"+msg);
     }
 
     @FXML
