@@ -212,6 +212,33 @@ public class model {
         }
         return user;
     }
+    
+    public static JSONArray removeUser(JSONArray userList, String username){
+//        This method Returns a JSON Array With the specific user with the specified username removed.
+        modEmployeeList = userList;
+        for(int i=0; i < userList.size(); i++){
+            JSONObject userObject =(JSONObject) userList.get(i);
+
+            JSONObject dbUser = (JSONObject) userObject.get("user");
+
+
+            String dbName = (String) dbUser.get("username");
+
+
+//            System.out.println("Inside the userValidation"+username);
+            if(dbName.equals(username)){
+
+                user = (JSONObject) userObject.get("user");
+//                    printIt(dbName+" Has access");
+
+                modUserList.remove(i);
+
+                break;
+            }
+            
+        }
+        return modUserList;
+    }
 
 //    1 -> user
 //     2 -> employee

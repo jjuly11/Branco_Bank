@@ -76,7 +76,11 @@ public class SecondaryController {
 //    To Remove a user the admin must type the username into the search bar the click remove user.
     @FXML
     private void remove_user_click() throws IOException {
-        App.setRoot("admin_remove_user");
+        JSONArray newList = TheModel.removeUser(JSONObj.readJSON("users.json"), searched_user_field.getText());
+        System.out.println("Removed User");
+        System.out.println(newList);
+        JSONObj.writeJSON(newList,"users.json");
+        App.setRoot("admin_user_remove");
     }
 
     @FXML
