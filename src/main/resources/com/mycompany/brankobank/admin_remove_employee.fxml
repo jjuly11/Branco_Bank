@@ -24,7 +24,7 @@
                 </Label>
             </children>
         </VBox>
-        <Button layoutX="274.0" layoutY="188.0" mnemonicParsing="false" text="Back" textAlignment="CENTER" AnchorPane.bottomAnchor="181.0" AnchorPane.leftAnchor="254.0" AnchorPane.rightAnchor="255.0" AnchorPane.topAnchor="188.0">
+        <Button layoutX="274.0" layoutY="188.0" mnemonicParsing="false" text="Back" textAlignment="CENTER" AnchorPane.bottomAnchor="181.0" AnchorPane.leftAnchor="254.0" AnchorPane.rightAnchor="255.0" AnchorPane.topAnchor="188.0" onAction="#remove_employee_back_click">
             <font>
                 <Font size="15.0" />
             </font>

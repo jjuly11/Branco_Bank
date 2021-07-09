@@ -1,1 +1,1 @@
-[{"employee":{"password":"password","fullName":"employee 1","position":"manager","isAdmin":"false","username":"emp1"}},{"employee":{"password":"man","fullName":"Workingman","position":"footstool","isAdmin":"True","username":"wman"}}]
+[{"employee":{"password":"password","fullName":"employee 1","position":"manager","isAdmin":"false","username":"emp1"}}]

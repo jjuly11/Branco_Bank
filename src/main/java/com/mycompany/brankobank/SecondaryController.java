@@ -85,9 +85,24 @@ public class SecondaryController {
 
     @FXML
     private void remove_employee_click() throws IOException {
+        System.out.println(searched_employee_field.getText());
+        JSONArray newList = TheModel.removeEmployee(JSONObj.readJSON("employee.json"), searched_employee_field.getText());
+        System.out.println("Removed Employee");
+        System.out.println(searched_employee_field.getText());
+        JSONObj.writeJSON(newList,"employee.json");
         App.setRoot("admin_remove_employee");
     }
 
+    @FXML
+    private void remove_user_back_click() throws IOException {
+        App.setRoot("admin_options");
+    }
+    
+    @FXML
+    private void remove_employee_back_click() throws IOException {
+        App.setRoot("admin_options");
+    }
+    
     @FXML
     private void load_user_template_click() throws IOException {
         editable_user=(JSONObj.readJSONTemplate("user_template.json")).toJSONString();
